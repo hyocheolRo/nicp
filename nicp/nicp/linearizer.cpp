@@ -29,10 +29,13 @@ namespace nicp {
 
     // Allocate the variables for the sum reduction;
     int numThreads = omp_get_max_threads();
-    Matrix4f _Htt[numThreads], _Htr[numThreads], _Hrr[numThreads];
-    Vector4f _bt[numThreads], _br[numThreads];
-    int _inliers[numThreads];
-    float _errors[numThreads];
+	Matrix4f* _Htt = new Matrix4f[numThreads];
+	Matrix4f* _Htr = new Matrix4f[numThreads];
+	Matrix4f* _Hrr = new Matrix4f[numThreads];
+	Vector4f* _bt = new Vector4f[numThreads];
+	Vector4f* _br = new Vector4f[numThreads];
+    int* _inliers = new int[numThreads];
+    float* _errors = new float[numThreads];
     int iterationsPerThread = _aligner->correspondenceFinder()->numCorrespondences() / numThreads;
 #pragma omp parallel
     {

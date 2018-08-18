@@ -36,13 +36,13 @@ namespace nicp {
 
       // Construct an array of counters;
       int numThreads = omp_get_max_threads();
-      int localCorrespondenceIndex[numThreads];
-      int localOffset[numThreads];
+      int* localCorrespondenceIndex = new int[numThreads];
+      int* localOffset = new int [numThreads];
       int rowsPerThread = _referenceIndexImage.rows / numThreads;
       int iterationsPerThread = (_referenceIndexImage.rows * _referenceIndexImage.cols) / numThreads;
       for(int i = 0; i < numThreads; i++) {
-	 localOffset[i] = i * iterationsPerThread;
-	 localCorrespondenceIndex[i] = localOffset[i];
+		 localOffset[i] = i * iterationsPerThread;
+		 localCorrespondenceIndex[i] = localOffset[i];
       }
 #pragma omp parallel
       {
@@ -132,13 +132,13 @@ namespace nicp {
 
       // Construct an array of counters;
       int numThreads = omp_get_max_threads();
-      int localCorrespondenceIndex[numThreads];
-      int localOffset[numThreads];
+      int* localCorrespondenceIndex = new int[numThreads];
+      int* localOffset = new int[numThreads];
       int rowsPerThread = _referenceIndexImage.rows / numThreads;
       int iterationsPerThread = (_referenceIndexImage.rows * _referenceIndexImage.cols) / numThreads;
       for(int i = 0; i < numThreads; i++) {
-	 localOffset[i] = i * iterationsPerThread;
-	 localCorrespondenceIndex[i] = localOffset[i];
+		localOffset[i] = i * iterationsPerThread;
+		localCorrespondenceIndex[i] = localOffset[i];
       }
 
 #pragma omp parallel
