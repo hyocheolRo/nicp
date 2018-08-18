@@ -14,14 +14,14 @@ namespace nicp {
       dest.resize(src.points().size() * 6);
       float* dp = &dest[0];
       for(size_t i=0; i < src.points().size(); ++i) {
-	 const Point& p = src.points()[i];
-	 const Normal& n = nscale * src.normals()[i];
-	 *dp = p.x(); ++dp;
-	 *dp = p.y(); ++dp;
-	 *dp = p.z(); ++dp;
-	 *dp = n.x(); ++dp;
-	 *dp = n.y(); ++dp;
-	 *dp = n.z(); ++dp;
+		const Point& p = src.points()[i];
+		const Normal& n = src.normals()[i] * nscale;
+		*dp = p.x(); ++dp;
+		*dp = p.y(); ++dp;
+		*dp = p.z(); ++dp;
+		*dp = n.x(); ++dp;
+		*dp = n.y(); ++dp;
+		*dp = n.z(); ++dp;
       }
    }
 

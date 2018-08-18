@@ -26,7 +26,9 @@ namespace nicp {
       assert(_referenceDepthImage.rows > 0 && _referenceDepthImage.cols > 0 && "CorrespondenceFinderProjective: _referenceDepthImage has zero size");
       assert(_currentDepthImage.rows > 0 && _currentDepthImage.cols > 0 && "CorrespondenceFinderProjective: _currentDepthImage has zero size");
 
-      T.matrix().block<1, 4>(3, 0) << 0.0f, 0.0f, 0.0f, 1.0f;
+	  Eigen::Isometry3f T_box = T;
+	  T_box.matrix().block<1, 4>(3, 0) << 0.0f, 0.0f, 0.0f, 1.0f;
+
       _numCorrespondences = 0;
       if((int)_correspondences.size() != _referenceIndexImage.rows * _referenceIndexImage.cols)
 	 _correspondences.resize(_referenceIndexImage.rows * _referenceIndexImage.cols);
@@ -69,8 +71,8 @@ namespace nicp {
 	       if(!_demotedToGICP && (currentNormal.squaredNorm() == 0.0f || _referenceNormal.squaredNorm() == 0.0f)) { continue; }
 
 	       // Remappings
-	       Point referencePoint = T * _referencePoint;
-	       Normal referenceNormal = T * _referenceNormal;
+	       Point referencePoint = T_box * _referencePoint;
+	       Normal referenceNormal = T_box * _referenceNormal;
 
 	       Eigen::Vector4f pointsDistance = currentPoint - referencePoint;
 	       // The condition below has moved to the increment, fill the pipeline, baby
@@ -122,7 +124,9 @@ namespace nicp {
       assert(_referenceDepthImage.rows > 0 && _referenceDepthImage.cols > 0 && "CorrespondenceFinderProjective: _referenceDepthImage has zero size");
       assert(_currentDepthImage.rows > 0 && _currentDepthImage.cols > 0 && "CorrespondenceFinderProjective: _currentDepthImage has zero size");
 
-      T.matrix().block<1, 4>(3, 0) << 0.0f, 0.0f, 0.0f, 1.0f;
+	  Eigen::Isometry3f T_box = T;
+	  T_box.matrix().block<1, 4>(3, 0) << 0.0f, 0.0f, 0.0f, 1.0f;
+
       _numCorrespondences = 0;
       if((int)_correspondences.size() != _referenceIndexImage.rows * _referenceIndexImage.cols)
 	 _correspondences.resize(_referenceIndexImage.rows * _referenceIndexImage.cols);
@@ -168,8 +172,8 @@ namespace nicp {
 	       if (_referenceNormal.squaredNorm() == 0.0f)
 		  continue;
 
-	       Point referencePoint = T * _referencePoint;
-	       Normal referenceNormal = T * _referenceNormal;
+	       Point referencePoint = T_box * _referencePoint;
+	       Normal referenceNormal = T_box * _referenceNormal;
 
 	       float referenceCurvature = referenceScene.stats()[referenceIndex].curvature();
 	       if(referenceCurvature < _flatCurvatureThreshold)

@@ -26,16 +26,16 @@ namespace nicp {
 
       AccumulatorMap::iterator it = accumulatorMap.find(s);
       if(it == accumulatorMap.end()) {
-	VoxelAccumulator voxelAccumulator;
-	voxelAccumulator.accumulator = point;
-	voxelAccumulator.numPoints = 1;
-	voxelAccumulator.index = i;
+		VoxelAccumulator voxelAccumulator;
+		voxelAccumulator.accumulator = point;
+		voxelAccumulator.numPoints = 1;
+		voxelAccumulator.index = i;
 
-	accumulatorMap.insert(make_pair(s, voxelAccumulator));
+		accumulatorMap.insert(make_pair(s, voxelAccumulator));
       }
       else {
-	VoxelAccumulator &voxelAccumulator = it->second;
-	voxelAccumulator.add(point);
+		VoxelAccumulator &voxelAccumulator = it->second;
+		voxelAccumulator.add(point);
       }
     }
 

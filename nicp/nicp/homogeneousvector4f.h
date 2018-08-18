@@ -18,7 +18,8 @@ namespace nicp {
   public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
 
-    static const float wCoordinate = wCoordinate_;
+	//원래 static const float 이었는데 float 으로 해도 문제가 없는 건지? 
+    float wCoordinate = wCoordinate_;
 
     /**
      *  Empty constructor.
