@@ -45,7 +45,7 @@ namespace nicp {
      *  @param flatInformationMatrix_ is the base 4x4 information matrix for points lying on a flat surface used to update the one set to the InformationMatrixCalculator.
      *  @see flatInformationMatrix()
      */
-    inline void setFlatInformationMatrix(const InformationMatrix flatInformationMatrix_) { _flatInformationMatrix = flatInformationMatrix_; }
+    inline void setFlatInformationMatrix(const InformationMatrix& flatInformationMatrix_) { _flatInformationMatrix = flatInformationMatrix_; }
 
     /**
      *  Method that returns the base information matrix used for points lying on an high curvature surface.
@@ -59,7 +59,7 @@ namespace nicp {
      *  @param nonFlatInformationMatrix_ is the base 4x4 information matrix for points lying on an high curvature flat surface used to update the one set to the InformationMatrixCalculator.
      *  @see nonFlatInformationMatrix()
      */
-    inline void setNonFlatInformationMatrix(const InformationMatrix nonFlatInformationMatrix_) { _nonFlatInformationMatrix = nonFlatInformationMatrix_; }
+    inline void setNonFlatInformationMatrix(const InformationMatrix& nonFlatInformationMatrix_) { _nonFlatInformationMatrix = nonFlatInformationMatrix_; }
 
     /**
      *  Method that returns the curvature threshold used by the InformationMatrixCalculator.

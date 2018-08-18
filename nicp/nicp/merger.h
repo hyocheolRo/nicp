@@ -110,7 +110,7 @@ namespace nicp {
      *  @param cloud is a pointer to the cloud to merge.
      *  @param transform is the pose transofrmation to use in the merging process.
      */
-    void merge(Cloud *cloud, Eigen::Isometry3f transform = Eigen::Isometry3f::Identity());
+    void merge(Cloud *cloud, const Eigen::Isometry3f& transform = Eigen::Isometry3f::Identity());
     
   protected:
     float _distanceThreshold; /**< Distance threshold for which points over it are not collapsed. */

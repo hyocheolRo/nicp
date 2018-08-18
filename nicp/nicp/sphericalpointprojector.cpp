@@ -1,5 +1,8 @@
 #include "sphericalpointprojector.h"
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 #include <stdexcept>
 
 using namespace std;

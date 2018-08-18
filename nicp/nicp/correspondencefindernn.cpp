@@ -66,7 +66,7 @@ namespace nicp {
       _correspondences.reserve(_indices_matrix.rows * _indices_matrix.cols);
    }
 
-   void CorrespondenceFinderNN::compute(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T) {
+   void CorrespondenceFinderNN::compute(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T) {
       _model2linear(_reference_points, referenceScene, _normal_scaling, T);
 
       flann::SearchParams params(16);

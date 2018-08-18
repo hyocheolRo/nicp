@@ -17,7 +17,7 @@ namespace nicp {
     return load(T, is);
   }
   
-  bool Cloud::save(const char *filename, Eigen::Isometry3f T, int step, bool binary) {
+  bool Cloud::save(const char *filename, const Eigen::Isometry3f& T, int step, bool binary) {
     ofstream os(filename);
     if(!os)
       return false;
@@ -96,7 +96,7 @@ namespace nicp {
     return is.good();
   }
 
-  bool Cloud::save(ostream &os, Eigen::Isometry3f T, int step, bool binary) {
+  bool Cloud::save(ostream &os, const Eigen::Isometry3f& T, int step, bool binary) {
     os << "NICPCLOUD " << _points.size() / step << " " << binary << endl; 
     Vector6f transform = t2v(T);
     os << transform[0] << " " << transform[1] << " " << transform[2] << " " 

@@ -57,7 +57,7 @@ namespace nicp {
          *  @param currentScene is a reference to the second point cloud to use to compute the Correspondence.
          *  @param T is an isometry that is applied to the first point cloud before to compute the Correspondence.
          */
-        virtual void compute(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T);
+        virtual void compute(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T);
 
       protected:
         void _model2linear(std::vector<float>& dest, const Cloud& src, float nscale);

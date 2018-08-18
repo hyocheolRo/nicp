@@ -141,7 +141,7 @@ namespace nicp {
      *  @param currentScene is a reference to the second point cloud to use to compute the Correspondence.
      *  @param T is an isometry that is applied to the first point cloud before to compute the Correspondence.
      */
-    virtual void compute(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T);
+    virtual void compute(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T);
 
     inline int rowSearchRegion() const { return _rowSearchRegion;}
     inline int colSearchRegion() const { return _colSearchRegion;}
@@ -150,8 +150,8 @@ namespace nicp {
     inline void setColSearchRegion(int csr) { _colSearchRegion = csr; }
 
   protected:
-    void _computeSingle(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T);
-    void _computeMulti(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T);
+    void _computeSingle(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T);
+    void _computeMulti(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T);
 
     int _rows; /**< Number of rows of the index images and depth images used by the CorrespondenceFinder. */
     int _cols; /**< Number of columns of the index images and depth images used by the CorrespondenceFinder. */

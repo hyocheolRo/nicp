@@ -52,7 +52,7 @@ namespace nicp {
      *  @param mean_ is a Point used to update the mean of the points used to compute the normal of the point.
      *  @see mean()
      */
-    inline void setMean(const Point mean_) { block<4, 1>(0, 3) = mean_; }
+    inline void setMean(const Point& mean_) { block<4, 1>(0, 3) = mean_; }
 
     /**
      *  This method returns the eigenvalues of the covariance matrix of the points used to compute the normal of the point.

@@ -1,5 +1,8 @@
 #include "merger.h"
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 namespace nicp {
 
   Merger::Merger() {
@@ -12,7 +15,7 @@ namespace nicp {
     _collapsedIndices.resize(0);
   }
 
-  void Merger::merge(Cloud *cloud, Eigen::Isometry3f transform) {
+  void Merger::merge(Cloud *cloud, const Eigen::Isometry3f& transform) {
     assert(_indexImage.rows > 0 && _indexImage.cols > 0 && "Merger: _indexImage has zero size");  
     assert(_depthImageConverter  && "Merger: missing _depthImageConverter");  
     assert(_depthImageConverter->projector()  && "Merger: missing projector in _depthImageConverter");  

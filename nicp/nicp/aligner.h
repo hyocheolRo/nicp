@@ -135,7 +135,7 @@ namespace nicp {
      *  @param initialGuess_ is an isometry transformation used to update the initial guess setted to the Aligner.
      *  @see initialGuess()
      */
-    inline void setInitialGuess(const Eigen::Isometry3f initialGuess_) {
+    inline void setInitialGuess(const Eigen::Isometry3f& initialGuess_) {
       _initialGuess = initialGuess_;
       _initialGuess.matrix().row(3) << 0.0f, 0.0f, 0.0f, 1.0f;
     }
@@ -154,7 +154,7 @@ namespace nicp {
      *  clouds.
      *  @see sensorOffset()
      */
-    inline void setSensorOffset(const Eigen::Isometry3f sensorOffset_) {
+    inline void setSensorOffset(const Eigen::Isometry3f& sensorOffset_) {
       setReferenceSensorOffset(sensorOffset_);
       setCurrentSensorOffset(sensorOffset_);
     }
@@ -173,7 +173,7 @@ namespace nicp {
      *  cloud.
      *  @see referenceSensorOffset()
      */
-    inline void setReferenceSensorOffset(const Eigen::Isometry3f referenceSensorOffset_) {
+    inline void setReferenceSensorOffset(const Eigen::Isometry3f& referenceSensorOffset_) {
       _referenceSensorOffset = referenceSensorOffset_;
       _referenceSensorOffset.matrix().row(3) << 0.0f, 0.0f, 0.0f, 1.0f;
     }
@@ -192,7 +192,7 @@ namespace nicp {
      *  to align.
      *  @see currentSensorOffset()
      */
-    inline void setCurrentSensorOffset(const Eigen::Isometry3f currentSensorOffset_) {
+    inline void setCurrentSensorOffset(const Eigen::Isometry3f& currentSensorOffset_) {
       _currentSensorOffset = currentSensorOffset_;
       _currentSensorOffset.matrix().row(3) << 0.0f, 0.0f, 0.0f, 1.0f;
     }

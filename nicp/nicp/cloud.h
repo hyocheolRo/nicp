@@ -145,7 +145,7 @@ namespace nicp {
      *  @return a bool value that is true if the cloud was saved correctly, false otherwise.
      *  @see load()
      */
-    bool save(const char *filename, Eigen::Isometry3f T = Eigen::Isometry3f::Identity(), int step = 1, bool binary = true);
+    bool save(const char *filename, const Eigen::Isometry3f& T = Eigen::Isometry3f::Identity(), int step = 1, bool binary = true);
 
     /**
      *  Method that allows to save a cloud on file.
@@ -157,7 +157,7 @@ namespace nicp {
      *  @return a bool value that is true if the cloud was saved correctly, false otherwise.
      *  @see load()
      */
-    bool save(ostream &os, Eigen::Isometry3f T = Eigen::Isometry3f::Identity(), int step = 1, bool binary = true);
+    bool save(ostream &os, const Eigen::Isometry3f& T = Eigen::Isometry3f::Identity(), int step = 1, bool binary = true);
 
     /**
      *  Method that clears all the data vectors of the cloud erasing all the elements.

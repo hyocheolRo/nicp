@@ -13,14 +13,14 @@ namespace nicp {
       _colSearchRegion = 0;
    }
 
-   void CorrespondenceFinderProjective::compute(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T){
+   void CorrespondenceFinderProjective::compute(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T){
       if (_rowSearchRegion == 0 && _colSearchRegion == 0)
 	 _computeSingle(referenceScene, currentScene, T);
       else
 	 _computeMulti(referenceScene, currentScene, T);
    }
 
-   void CorrespondenceFinderProjective::_computeSingle(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T) {
+   void CorrespondenceFinderProjective::_computeSingle(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T) {
       assert(_referenceIndexImage.rows > 0 && _referenceIndexImage.cols > 0 && "CorrespondenceFinderProjective: _referenceIndexImage has zero size");
       assert(_currentIndexImage.rows > 0 && _currentIndexImage.cols > 0 && "CorrespondenceFinderProjective: _currentIndexImage has zero size");
       assert(_referenceDepthImage.rows > 0 && _referenceDepthImage.cols > 0 && "CorrespondenceFinderProjective: _referenceDepthImage has zero size");
@@ -116,7 +116,7 @@ namespace nicp {
 
 
 
-   void CorrespondenceFinderProjective::_computeMulti(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T) {
+   void CorrespondenceFinderProjective::_computeMulti(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T) {
       assert(_referenceIndexImage.rows > 0 && _referenceIndexImage.cols > 0 && "CorrespondenceFinderProjective: _referenceIndexImage has zero size");
       assert(_currentIndexImage.rows > 0 && _currentIndexImage.cols > 0 && "CorrespondenceFinderProjective: _currentIndexImage has zero size");
       assert(_referenceDepthImage.rows > 0 && _referenceDepthImage.cols > 0 && "CorrespondenceFinderProjective: _referenceDepthImage has zero size");

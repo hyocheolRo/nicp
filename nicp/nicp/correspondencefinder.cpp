@@ -1,5 +1,8 @@
 #include "correspondencefinder.h"
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 #include <omp.h>
 
 using namespace std;

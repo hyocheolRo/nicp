@@ -143,7 +143,7 @@ namespace nicp {
      *  @param currentScene is a reference to the second point cloud to use to compute the Correspondence.
      *  @param T is an isometry that is applied to the reference point cloud before to compute the Correspondence.
      */
-    virtual void compute(const Cloud &referenceScene, const Cloud &currentScene, Eigen::Isometry3f T) = 0;
+    virtual void compute(const Cloud &referenceScene, const Cloud &currentScene, const Eigen::Isometry3f& T) = 0;
 
     /**
      *  Method that returns true if the correspondence finder is demoted to behave like GICP,
