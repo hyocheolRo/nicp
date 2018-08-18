@@ -1,5 +1,6 @@
 #include "alignernn.h"
 
+#define NOMINMAX
 //#include <sys/time.h>
 #include "windows.h"
 #include <time.h>

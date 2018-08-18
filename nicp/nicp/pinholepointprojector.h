@@ -2,6 +2,7 @@
 
 #include "pointprojector.h"
 
+
 namespace nicp {
 
   /** \class PinholePointProjector pinholepointprojector.h "pinholepointprojector.h"
